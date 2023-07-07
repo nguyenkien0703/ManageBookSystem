@@ -2,6 +2,8 @@ package com.example.bookservice.command.event;
 
 import com.example.bookservice.command.data.Book;
 import com.example.bookservice.command.data.BookRepository;
+import com.example.commonservice.command.RollBackStatusBookCommand;
+import com.example.commonservice.events.BookRollBackStatusEvent;
 import com.example.commonservice.events.BookUpdateStatusEvent;
 import com.netflix.discovery.converters.Auto;
 import org.axonframework.commandhandling.CommandHandler;
@@ -43,6 +45,14 @@ public class BookEventsHandler {
         book.setIsReady(event.getIsReady());
         bookRepository.save(book);
     }
+
+    @EventHandler
+    public void on(BookRollBackStatusEvent event){
+        Book book = bookRepository.getById(event.getBookId());
+        book.setIsReady(event.getIsReady());
+        bookRepository.save(book);
+    }
+
 
 
 

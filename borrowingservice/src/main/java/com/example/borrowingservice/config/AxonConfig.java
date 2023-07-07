@@ -12,15 +12,9 @@ public class AxonConfig {
     public XStream xStream (){
         XStream xStream = new XStream();
         xStream.allowTypesByWildcard(new String[] {
-                // convert tất cả các package trong com.example và các package con nữa convert thành xml
                 "com.example.**"
         });
-        return xStream;// trả về đối tượng sau khi đã chuyển dodooir
+        return xStream;
     }
-
-
-
-
-
 
 }

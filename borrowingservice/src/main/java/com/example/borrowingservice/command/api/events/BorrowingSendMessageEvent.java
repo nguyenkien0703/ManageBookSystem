@@ -1,4 +1,4 @@
-package com.example.commonservice.events;
+package com.example.borrowingservice.command.api.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookRollBackStatusEvent {
-    private String bookId;
-    private Boolean isReady;
+
+public class BorrowingSendMessageEvent {
+    private String id ;
     private String employeeId;
-    private String borrowId;
+    private String message;
 }

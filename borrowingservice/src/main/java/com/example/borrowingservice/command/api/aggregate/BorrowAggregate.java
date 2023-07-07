@@ -2,9 +2,11 @@ package com.example.borrowingservice.command.api.aggregate;
 
 import com.example.borrowingservice.command.api.command.CreateBorrowCommand;
 import com.example.borrowingservice.command.api.command.DeleteBorrowCommand;
+import com.example.borrowingservice.command.api.command.SendMessageCommand;
 import com.example.borrowingservice.command.api.command.UpdateBookReturnCommand;
 import com.example.borrowingservice.command.api.events.BorrowCreateEvent;
 import com.example.borrowingservice.command.api.events.BorrowDeleteEvent;
+import com.example.borrowingservice.command.api.events.BorrowingSendMessageEvent;
 import com.example.borrowingservice.command.api.events.BorrowingUpdateBookReturnEvent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +17,7 @@ import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 
@@ -50,6 +53,13 @@ public class BorrowAggregate {
         BeanUtils.copyProperties(command,event);
         AggregateLifecycle.apply(event);
     }
+    //send message
+    @CommandHandler
+    public void handle(SendMessageCommand command){
+        BorrowingSendMessageEvent event = new BorrowingSendMessageEvent();
+        BeanUtils.copyProperties(command, event);
+        AggregateLifecycle.apply(event);
+    }
 
 
 
@@ -63,6 +73,12 @@ public class BorrowAggregate {
     @EventSourcingHandler
     public void on(BorrowDeleteEvent event){
         this.id = event.getId();
+    }
+    @EventSourcingHandler
+    public void on(BorrowingSendMessageEvent event ){
+        this.id = event.getId();
+        this.employeeId = event.getEmployeeId();
+        this.message =event.getMessaga();
     }
 
 

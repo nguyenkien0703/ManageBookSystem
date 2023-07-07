@@ -8,8 +8,8 @@ import java.util.List;
 @Repository
 public interface BorrowRepository extends JpaRepository<Borrowing,String > {
 
-//    List<Borrowing> findByEmployeeIdAndReturnDateIsNull(String employeeId);
-//    Borrowing findByEmployeeIdAnAndBookIdAndReturnDateIsNull(String employeeId, String bookId);
+    List<Borrowing> findByEmployeeIdAndReturnDateIsNull(String employeeId);
+    Borrowing findByEmployeeIdAndBookIdAndReturnDateIsNull(String employeeId, String bookId);
 
 
 }

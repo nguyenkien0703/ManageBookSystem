@@ -5,26 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e9897c-3dbd-4500-ac35-499f0488f8b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/command/RollBackStatusBookCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/events/BookRollBackStatusEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/events/BookUpdateStatusEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/microservice_begin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/microservice_begin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/aggregate/BookAggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/aggregate/BookAggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/data/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/data/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/event/BookEventsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/event/BookEventsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/event/BookUpdateEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/command/event/BookUpdateEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/query/model/BookResponseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/query/model/BookResponseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/query/projection/BookProjection.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/query/projection/BookProjection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/query/queries/GetBooksQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/bookservice/src/main/java/com/example/bookservice/query/queries/GetBooksQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/aggregate/BorrowAggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/aggregate/BorrowAggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/command/UpdateBorrowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/command/UpdateBookReturnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/events/BorrowUpdateEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/events/BorrowingUpdateBookReturnEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/events/BorrowingEventsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/events/BorrowingEventsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/controller/BorrowCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/controller/BorrowCommandController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/saga/BorrowingSaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/command/api/saga/BorrowingSaga.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/model/BookResponseCommonModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/model/BookResponseCommonModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/query/GetDetailsBookQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonservice/src/main/java/com/example/commonservice/query/GetDetailsBookQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificationservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notificationservice/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/config/AxonConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/borrowingservice/src/main/java/com/example/borrowingservice/config/AxonConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +36,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/ttm-kiennv/Desktop/learnMicroservice/microservice_begin",
+    "last_opened_file_path": "C:/Users/ttm-kiennv/Desktop/learnMicroservice/microservice_begin/bookservice",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "spring.configuration.checksum": "7329c187155c0be08a25f278b77d314a",
     "vue.rearranger.settings.migration": "true"
@@ -104,6 +89,8 @@
       <workItem from="1688693630855" duration="18000" />
       <workItem from="1688695833326" duration="16000" />
       <workItem from="1688699802339" duration="60000" />
+      <workItem from="1688704756936" duration="379000" />
+      <workItem from="1688705146642" duration="575000" />
     </task>
     <servers />
   </component>
