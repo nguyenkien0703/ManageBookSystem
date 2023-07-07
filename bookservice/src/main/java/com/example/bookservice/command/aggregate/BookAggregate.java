@@ -6,6 +6,8 @@ import com.example.bookservice.command.command.UpdateBookCommand;
 import com.example.bookservice.command.event.BookCreatedEvent;
 import com.example.bookservice.command.event.BookDeleteEvent;
 import com.example.bookservice.command.event.BookUpdateEvent;
+import com.example.commonservice.command.UpdateStatusBookCommand;
+import com.example.commonservice.events.BookUpdateStatusEvent;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
@@ -15,6 +17,7 @@ import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 import org.axonframework.spring.stereotype.Aggregate;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 
 @Aggregate
 @AllArgsConstructor
@@ -84,5 +87,23 @@ public class BookAggregate {
         this.bookId = event.getBookId();
 
     }
+
+//    ==========
+    @CommandHandler
+    public void handle(UpdateStatusBookCommand command){
+        BookUpdateStatusEvent event = new BookUpdateStatusEvent();
+        BeanUtils.copyProperties(command, event );
+        AggregateLifecycle.apply(event);
+    }
+
+    @EventSourcingHandler
+    public void on(BookUpdateStatusEvent event ){
+        this.bookId  = event.getBookId();
+        this.isReady = event.getIsReady();
+    }
+
+
+
+
 
 }

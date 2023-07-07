@@ -5,6 +5,7 @@ import com.example.bookservice.command.data.BookRepository;
 import com.example.bookservice.query.model.BookResponseModel;
 import com.example.bookservice.query.queries.GetAllBooksQuery;
 import com.example.bookservice.query.queries.GetBooksQuery;
+import com.example.commonservice.query.GetDetailsBookQuery;
 import com.netflix.discovery.converters.Auto;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
@@ -38,6 +39,16 @@ public class BookProjection {
         });
         return listbook;
     }
+
+    @QueryHandler
+    public BookResponseModel handle(GetDetailsBookQuery getDetailsBookQuery){
+        BookResponseModel model = new BookResponseModel();
+        Book book = bookRepository.getById(getDetailsBookQuery.getBookId());
+        BeanUtils.copyProperties(book, model );
+        return model;
+    }
+
+
 
 
 

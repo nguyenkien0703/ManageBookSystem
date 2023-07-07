@@ -1,13 +1,15 @@
 package com.example.bookservice.query.queries;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class GetBooksQuery {
     private String bookId;
 
-    public String getBookId() {
-        return bookId;
-    }
 
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
-    }
 }

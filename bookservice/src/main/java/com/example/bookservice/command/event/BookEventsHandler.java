@@ -2,6 +2,7 @@ package com.example.bookservice.command.event;
 
 import com.example.bookservice.command.data.Book;
 import com.example.bookservice.command.data.BookRepository;
+import com.example.commonservice.events.BookUpdateStatusEvent;
 import com.netflix.discovery.converters.Auto;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventhandling.EventHandler;
@@ -36,6 +37,13 @@ public class BookEventsHandler {
     public void on(BookDeleteEvent event ){
         bookRepository.deleteById(event.getBookId());
     }
+    @EventHandler
+    public void on(BookUpdateStatusEvent event){
+        Book book = bookRepository.getById(event.getBookId());
+        book.setIsReady(event.getIsReady());
+        bookRepository.save(book);
+    }
+
 
 
 

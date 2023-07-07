@@ -13,8 +13,4 @@ public class BookResponseCommonModel {
     private String name ;
     private String author ;
     private Boolean isReady;
-
-
-
-
 }

@@ -1,9 +1,11 @@
 package com.example.borrowingservice.command.api.aggregate;
 
 import com.example.borrowingservice.command.api.command.CreateBorrowCommand;
-import com.example.borrowingservice.command.api.command.UpdateBorrowCommand;
+import com.example.borrowingservice.command.api.command.DeleteBorrowCommand;
+import com.example.borrowingservice.command.api.command.UpdateBookReturnCommand;
 import com.example.borrowingservice.command.api.events.BorrowCreateEvent;
-import com.example.borrowingservice.command.api.events.BorrowUpdateEvent;
+import com.example.borrowingservice.command.api.events.BorrowDeleteEvent;
+import com.example.borrowingservice.command.api.events.BorrowingUpdateBookReturnEvent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,11 +38,20 @@ public class BorrowAggregate {
         AggregateLifecycle.apply(event);
     }
     @CommandHandler
-    public void handle (UpdateBorrowCommand command){
-        BorrowUpdateEvent event = new BorrowUpdateEvent();
+    public void handle (UpdateBookReturnCommand command){
+        BorrowingUpdateBookReturnEvent event = new BorrowingUpdateBookReturnEvent();
         BeanUtils.copyProperties(command,event);
         AggregateLifecycle.apply(event);
     }
+
+    @CommandHandler
+    public void handle(DeleteBorrowCommand command){
+        BorrowDeleteEvent event = new BorrowDeleteEvent();
+        BeanUtils.copyProperties(command,event);
+        AggregateLifecycle.apply(event);
+    }
+
+
 
     @EventSourcingHandler
     public void on(BorrowCreateEvent event){
@@ -49,5 +60,12 @@ public class BorrowAggregate {
         this.borrowingDate  = event.getBorrowingDate();
         this.id = event.getId();
     }
+    @EventSourcingHandler
+    public void on(BorrowDeleteEvent event){
+        this.id = event.getId();
+    }
+
+
+
 
 }
