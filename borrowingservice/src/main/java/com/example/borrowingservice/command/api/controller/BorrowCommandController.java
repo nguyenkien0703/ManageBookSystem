@@ -23,22 +23,15 @@ public class BorrowCommandController {
 
     @PostMapping
     public String addBookBorrowing(@RequestBody BorrowRequestModel model){
-        Integer ok =1;
+
         try{
             CreateBorrowCommand command = new CreateBorrowCommand(UUID.randomUUID().toString(),model.getBookId(),model.getEmployeeId(),new Date());
             commandGateway.sendAndWait(command);
 
-//            return "Book borrowing added";
         }catch (Exception e ){
-            ok =0;
             System.out.println(e.getMessage());
         }
-        if(ok==1){
-            return "borrowing added book";
-        }else
-        {
-            return "not borrowing added bood";
-        }
+        return "borrowing added book";
 
 
     }
