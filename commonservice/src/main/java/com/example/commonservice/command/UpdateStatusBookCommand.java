@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class UpdateStatusBookCommand {
 
@@ -15,6 +14,12 @@ public class UpdateStatusBookCommand {
     private String employeeId;
     private String borrowId;
 
-
+    public UpdateStatusBookCommand(String bookId, Boolean isReady, String employeeId, String borrowId) {
+        super();
+        this.bookId = bookId;
+        this.isReady = isReady;
+        this.employeeId = employeeId;
+        this.borrowId = borrowId;
+    }
 
 }

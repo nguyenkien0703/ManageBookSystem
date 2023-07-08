@@ -37,6 +37,7 @@ public class BorrowAggregate {
     @CommandHandler
     public BorrowAggregate(CreateBorrowCommand command){
         BorrowCreateEvent event = new BorrowCreateEvent();
+        System.out.println("CommandbookId "+ command.getBookId());
         BeanUtils.copyProperties(command,event);
         AggregateLifecycle.apply(event);
     }
@@ -78,7 +79,7 @@ public class BorrowAggregate {
     public void on(BorrowingSendMessageEvent event ){
         this.id = event.getId();
         this.employeeId = event.getEmployeeId();
-        this.message =event.getMessaga();
+        this.message =event.getMessage();
     }
 
 

@@ -23,6 +23,8 @@ import org.axonframework.queryhandling.QueryGateway;
 import org.axonframework.spring.stereotype.Saga;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
+
 @Saga
 public class BorrowingSaga {
 
@@ -44,17 +46,26 @@ public class BorrowingSaga {
         try{
             // đây là saga đang quản lí transaction của cái book có id là bookId
             SagaLifecycle.associateWith("bookId",event.getBookId());
+            System.out.println(event.getBookId());
+            System.out.println("chuan bi query");
+
             GetDetailsBookQuery getDetailBookQuery = new GetDetailsBookQuery(event.getBookId());
             BookResponseCommonModel bookResponseModel = queryGateway.query(getDetailBookQuery, ResponseTypes.instanceOf(BookResponseCommonModel.class)).join();
+            System.out.println("1234567890");
             if(bookResponseModel.getIsReady() == true ) {// true: là chưa có ai mượn sách này cả
+                System.out.println("1111111111");
                 UpdateStatusBookCommand command = new UpdateStatusBookCommand(event.getBookId(),false,event.getEmployeeId(),event.getId());
+                System.out.println("2222222222222222");
                 commandGateway.sendAndWait(command);
+
             }else {
                 throw new Exception("Sach da co nguoi muon roi ");
             }
 
         }catch (Exception e ){
+            System.out.println("loi vai lon roi ");
             rollBackBorrowRecord(event.getId());
+            System.out.println(new Date());
             System.out.println("loi roi bạn oi ======");
         }
     }

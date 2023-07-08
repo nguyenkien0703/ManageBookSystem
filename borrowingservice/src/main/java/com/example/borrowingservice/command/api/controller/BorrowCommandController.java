@@ -23,22 +23,17 @@ public class BorrowCommandController {
 
     @PostMapping
     public String addBookBorrowing(@RequestBody BorrowRequestModel model){
-        Integer check = 1;
         try{
-            CreateBorrowCommand command = new CreateBorrowCommand(UUID.randomUUID().toString(),model.getBookId(),model.getEmployeeId(),new Date());
+            System.out.println("bat dau su kien muon ");
+            CreateBorrowCommand command =new CreateBorrowCommand(model.getBookId(), model.getEmployeeId(), new Date(),UUID.randomUUID().toString());
+            System.out.println("bat dau chuyen sang saga ddaay ");
             commandGateway.sendAndWait(command);
 
+
         }catch (Exception e ){
-            check =0;
             System.out.println(e.getMessage());
         }
-        if(check ==1 ){
-            return "borrowing added book";
-
-        }else {
-            return "not borrowing added book";
-
-        }
+        return "kien ";
 
 
     }

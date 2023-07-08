@@ -14,6 +14,10 @@ spring:
           uri: http://localhost:9002
           predicates:
             - Path=/api/v1/employees/**
+        - id: borrowingservice
+          uri: http://localhost:9003
+          predicates:
+            - Path=/api/v1/borrowing/**
       default-filters:
         - DedupeResponseHeader=Access-Controll-Allow-Credentials Access-Controll-Allow-Origin
       globalcors:

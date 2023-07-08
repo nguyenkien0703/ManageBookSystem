@@ -5,6 +5,7 @@ import com.example.bookservice.command.data.BookRepository;
 import com.example.bookservice.query.model.BookResponseModel;
 import com.example.bookservice.query.queries.GetAllBooksQuery;
 import com.example.bookservice.query.queries.GetBooksQuery;
+import com.example.commonservice.model.BookResponseCommonModel;
 import com.example.commonservice.query.GetDetailsBookQuery;
 import com.netflix.discovery.converters.Auto;
 import org.axonframework.queryhandling.QueryHandler;
@@ -41,10 +42,11 @@ public class BookProjection {
     }
 
     @QueryHandler
-    public BookResponseModel handle(GetDetailsBookQuery getDetailsBookQuery){
-        BookResponseModel model = new BookResponseModel();
+    public BookResponseCommonModel handle(GetDetailsBookQuery getDetailsBookQuery) {
+        BookResponseCommonModel model = new BookResponseCommonModel();
         Book book = bookRepository.getById(getDetailsBookQuery.getBookId());
-        BeanUtils.copyProperties(book, model );
+        BeanUtils.copyProperties(book, model);
+
         return model;
     }
 
