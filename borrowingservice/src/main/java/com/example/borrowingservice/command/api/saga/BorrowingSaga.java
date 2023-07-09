@@ -5,6 +5,7 @@ import com.example.borrowingservice.command.api.command.SendMessageCommand;
 import com.example.borrowingservice.command.api.data.BorrowRepository;
 import com.example.borrowingservice.command.api.events.BorrowCreateEvent;
 import com.example.borrowingservice.command.api.events.BorrowDeleteEvent;
+import com.example.borrowingservice.command.api.events.BorrowingUpdateBookReturnEvent;
 import com.example.commonservice.command.RollBackStatusBookCommand;
 import com.example.commonservice.command.UpdateStatusBookCommand;
 import com.example.commonservice.events.BookRollBackStatusEvent;
@@ -45,6 +46,8 @@ public class BorrowingSaga {
         System.out.println("borrowCreatedEvent in saga for BookId: " + event.getBookId()+ " and EmployeeId: " + event.getEmployeeId());
         try{
             // đây là saga đang quản lí transaction của cái book có id là bookId
+            // cái dòng bên dưới là nó đang định nghĩa cái @SagaEventHandler(associationProperty = "") của vòng đời tiếp theo của saga
+            // bây giờ cái chỗ associationProoperty kia sẽ là bookId
             SagaLifecycle.associateWith("bookId",event.getBookId());
             System.out.println(event.getBookId());
             System.out.println("chuan bi query");
@@ -108,7 +111,21 @@ public class BorrowingSaga {
         SagaLifecycle.end();
     }
 
+    @StartSaga
+    @SagaEventHandler(associationProperty = "id")
+    private void handle(BorrowingUpdateBookReturnEvent event ){
+        System.out.println("BorrowingUpdateBookReturnEvent in Saga for borrowing Id : "+event.getId());
 
+        try {
+            UpdateStatusBookCommand command = new UpdateStatusBookCommand(event.getBookId(),true, event.getEmployee(),event.getId());
+            commandGateway.sendAndWait(command);
+            commandGateway.sendAndWait(new SendMessageCommand(event.getId(), event.getEmployee(),"da tra sach thanh cong!!!!!!!"));
+            SagaLifecycle.end();
+        }catch (Exception e ){
+            rollBackBorrowRecord(event.getId());
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 

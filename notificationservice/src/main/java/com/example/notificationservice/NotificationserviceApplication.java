@@ -1,5 +1,6 @@
 package com.example.notificationservice;
 
+import org.slf4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -11,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableBinding(Sink.class)
 public class NotificationserviceApplication {
+	private Logger logger = org.slf4j.LoggerFactory.getLogger(NotificationserviceApplication.class);
 
 	@StreamListener(Sink.INPUT)
-	public void consumeMessage(String message){
-		System.out.println("message   " + message);
+	public void consumeMessage( Message message){
+		logger.info("consume payload: "+ message.getEmployeeId()+" "+message.getMessage());
+
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(NotificationserviceApplication.class, args);

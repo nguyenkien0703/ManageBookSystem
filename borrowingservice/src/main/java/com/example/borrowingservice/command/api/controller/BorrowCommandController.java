@@ -1,7 +1,9 @@
 package com.example.borrowingservice.command.api.controller;
 
 import com.example.borrowingservice.command.api.command.CreateBorrowCommand;
+import com.example.borrowingservice.command.api.command.UpdateBookReturnCommand;
 import com.example.borrowingservice.command.api.model.BorrowRequestModel;
+import com.example.borrowingservice.command.api.service.BorrowService;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
@@ -20,7 +22,8 @@ public class BorrowCommandController {
     private CommandGateway commandGateway;
     @Autowired
     private MessageChannel output ;
-
+    @Autowired
+    private BorrowService borrowService;
     @PostMapping
     public String addBookBorrowing(@RequestBody BorrowRequestModel model){
         try{
@@ -34,9 +37,18 @@ public class BorrowCommandController {
             System.out.println(e.getMessage());
         }
         return "kien ";
-
+    }
+    @PutMapping
+    public String updateBookReturn(@RequestBody BorrowRequestModel model ){
+        UpdateBookReturnCommand command = new UpdateBookReturnCommand(borrowService.findIdBorrowing(model.getEmployeeId(), model.getBookId()), model.getBookId(),model.getEmployeeId(),new Date());
+        commandGateway.sendAndWait(command);
+        return "book returned";
 
     }
+
+
+
+
 
 
 }

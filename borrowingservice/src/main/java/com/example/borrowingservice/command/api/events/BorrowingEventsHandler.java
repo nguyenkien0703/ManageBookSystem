@@ -39,5 +39,11 @@ public class BorrowingEventsHandler {
         borrowService.sendMessage(message);
     }
 
+    @EventHandler
+    public void on(BorrowingUpdateBookReturnEvent event ){
+        Borrowing model = borrowRepository.findByEmployeeIdAndBookIdAndReturnDateIsNull(event.getEmployee(),event.getBookId());
+        model.setReturnDate(event.getReturnDate());
+        borrowRepository.save(model);
+    }
 
 }

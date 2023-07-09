@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @EnableBinding(Source.class)
-public class BorrowService {
+public class BorrowService implements  IBorrowService {
 
     @Autowired
     private BorrowRepository borrowRepository;
@@ -30,6 +30,11 @@ public class BorrowService {
         }
     }
 
+    @Override
+    public String findIdBorrowing(String employeeId, String bookId) {
+        return borrowRepository.findByEmployeeIdAndBookIdAndReturnDateIsNull(employeeId,bookId).getId();
+
+    }
 
 
 }

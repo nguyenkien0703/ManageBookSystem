@@ -16,6 +16,7 @@ import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
+import org.hibernate.sql.Update;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Bean;
 
@@ -47,6 +48,14 @@ public class BorrowAggregate {
         BeanUtils.copyProperties(command,event);
         AggregateLifecycle.apply(event);
     }
+    @EventSourcingHandler
+    public void on(BorrowingUpdateBookReturnEvent event ) {
+        this.id = event.getId();
+        this.employeeId = event.getEmployee();
+        this.returnDate = event.getReturnDate();
+        this.bookId = event.getBookId();
+    }
+
 
     @CommandHandler
     public void handle(DeleteBorrowCommand command){
@@ -81,6 +90,8 @@ public class BorrowAggregate {
         this.employeeId = event.getEmployeeId();
         this.message =event.getMessage();
     }
+
+
 
 
 
