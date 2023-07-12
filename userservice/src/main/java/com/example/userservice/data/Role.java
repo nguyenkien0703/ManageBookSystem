@@ -4,7 +4,6 @@ package com.example.userservice.data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties;
 
 import javax.persistence.*;
 

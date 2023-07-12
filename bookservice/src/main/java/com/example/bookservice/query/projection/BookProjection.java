@@ -8,7 +8,6 @@ import com.example.bookservice.query.queries.GetBooksQuery;
 import com.example.commonservice.model.BookResponseCommonModel;
 import com.example.commonservice.query.GetDetailsBookQuery;
 import com.example.commonservice.query.GetListBookQuery;
-import com.netflix.discovery.converters.Auto;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

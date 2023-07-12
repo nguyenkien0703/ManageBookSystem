@@ -1,15 +1,14 @@
 package com.example.bookservice.command.controller;
 
-import java.util.UUID;
-
 import com.example.bookservice.command.command.CreateBookCommand;
 import com.example.bookservice.command.command.DeleteBookCommand;
 import com.example.bookservice.command.command.UpdateBookCommand;
+import com.example.bookservice.command.model.BookRequestModel;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.bookservice.command.model.BookRequestModel;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/books")

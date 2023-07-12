@@ -1,9 +1,8 @@
 package com.example.employeeservice.config;
 
+import com.thoughtworks.xstream.XStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.thoughtworks.xstream.XStream;
 
 @Configuration
 public class AxonConfig {

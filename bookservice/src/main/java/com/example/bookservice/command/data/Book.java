@@ -3,7 +3,6 @@ package com.example.bookservice.command.data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

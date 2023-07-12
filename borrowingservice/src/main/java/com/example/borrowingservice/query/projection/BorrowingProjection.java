@@ -9,14 +9,11 @@ import com.example.commonservice.model.BookResponseCommonModel;
 import com.example.commonservice.model.EmployeeResponseCommonModel;
 import com.example.commonservice.query.GetDetailsBookQuery;
 import com.example.commonservice.query.GetDetailsEmployeeQuery;
-import com.google.j2objc.annotations.AutoreleasePool;
-import com.netflix.discovery.converters.Auto;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

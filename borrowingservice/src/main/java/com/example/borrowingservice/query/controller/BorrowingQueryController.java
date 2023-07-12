@@ -3,7 +3,6 @@ package com.example.borrowingservice.query.controller;
 import com.example.borrowingservice.query.model.BorrowingResponseModel;
 import com.example.borrowingservice.query.queries.GetAllBorrowing;
 import com.example.borrowingservice.query.queries.GetListBorrowingEmployeeQuery;
-import org.axonframework.messaging.responsetypes.ResponseType;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.springframework.beans.factory.annotation.Autowired;

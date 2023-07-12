@@ -1,6 +1,5 @@
 package com.example.userservice.service;
 
-import ch.qos.logback.core.joran.util.beans.BeanDescriptionFactory;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.userservice.data.User;

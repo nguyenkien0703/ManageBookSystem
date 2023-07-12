@@ -7,7 +7,6 @@ import com.example.employeeservice.command.data.EmployeeRepository;
 import com.example.employeeservice.query.model.EmployeeResponseModel;
 import com.example.employeeservice.query.queries.GetAllEmployeeQuery;
 import com.example.employeeservice.query.queries.GetEmployeeQuery;
-import com.netflix.discovery.converters.Auto;
 import org.axonframework.queryhandling.QueryHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

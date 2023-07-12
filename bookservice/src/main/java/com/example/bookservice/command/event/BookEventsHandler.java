@@ -2,11 +2,8 @@ package com.example.bookservice.command.event;
 
 import com.example.bookservice.command.data.Book;
 import com.example.bookservice.command.data.BookRepository;
-import com.example.commonservice.command.RollBackStatusBookCommand;
 import com.example.commonservice.events.BookRollBackStatusEvent;
 import com.example.commonservice.events.BookUpdateStatusEvent;
-import com.netflix.discovery.converters.Auto;
-import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

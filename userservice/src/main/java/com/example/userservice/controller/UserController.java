@@ -1,10 +1,8 @@
 package com.example.userservice.controller;
 
 import com.example.userservice.data.User;
-import com.example.userservice.data.UserRepository;
 import com.example.userservice.model.UserDTO;
 import com.example.userservice.service.UserService;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
